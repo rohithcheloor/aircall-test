@@ -5,16 +5,12 @@ import callIncoming from "../assets/call-in.png";
 import callOutgoing from "../assets/call-out.png";
 import voicemail from "../assets/voicemail.png";
 import moment from "moment";
-import Details from "../pages/details/Details.jsx";
 
-const CallLogItem = ({ item, index }) => {
-  const showDetails = () => {
-    return <Details item={item} index={index} />;
-  };
+const CallLogItem = ({ item, onClick }) => {
   const itemTime = moment(item.created_at);
   return (
     <React.Fragment>
-      <div className="call-log-item" onClick={showDetails}>
+      <div className="call-log-item" onClick={onClick}>
         <div className="callIcon">
           {item.call_type == "answered" ? (
             item.direction == "inbound" ? (

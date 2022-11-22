@@ -1,12 +1,12 @@
 import moment from "moment";
 import React, { useState, useEffect } from "react";
 import { Button, Modal, Spinner } from "react-bootstrap";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import { getAllActivities, updateActivity } from "../../api/activities";
 import CallLogItem from "../../components/CallLogItem.jsx";
 import ErrorPage from "../../components/ErrorPage.jsx";
 
-const Inbox = () => {
+const Inbox = ({ changePage, setDetailsId }) => {
   const [activities, setActivities] = useState([]);
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
@@ -22,6 +22,11 @@ const Inbox = () => {
       setActivities(res);
       setLoading(false);
     });
+  };
+
+  const onCallLogItemClick = (index) => {
+    setDetailsId(index);
+    changePage(3);
   };
 
   const renderCallLogs = () => {
@@ -42,6 +47,7 @@ const Inbox = () => {
                   key={`call-log-item-${index}`}
                   item={item}
                   index={index}
+                  onClick={() => onCallLogItemClick(item.id)}
                 />
               </React.Fragment>
             );
@@ -51,6 +57,7 @@ const Inbox = () => {
                 key={`call-log-item-${index}`}
                 item={item}
                 index={index}
+                onClick={() => onCallLogItemClick(item.id)}
               />
             );
           }
@@ -79,9 +86,9 @@ const Inbox = () => {
     setShowModal(false);
     updateActivityList();
   };
+
   return (
     <React.Fragment>
-      <ToastContainer />
       {loading ? (
         <div className="loader">
           <Spinner variant="primary" />

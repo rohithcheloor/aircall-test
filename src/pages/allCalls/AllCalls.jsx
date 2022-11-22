@@ -4,7 +4,7 @@ import { Spinner } from "react-bootstrap";
 import { getAllActivities } from "../../api/activities";
 import CallLogItem from "../../components/CallLogItem.jsx";
 
-const AllCalls = () => {
+const AllCalls = ({ changePage, setDetailsId }) => {
   const [activities, setActivities] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -16,6 +16,11 @@ const AllCalls = () => {
         }
       });
   }, []);
+
+  const onCallLogItemClick = (index) => {
+    setDetailsId(index);
+    changePage(3);
+  };
 
   const renderCallLogs = () => {
     let currentTime = null;
@@ -34,6 +39,7 @@ const AllCalls = () => {
                 key={`call-log-item-${index}`}
                 item={item}
                 index={index}
+                onClick={() => onCallLogItemClick(item.id)}
               />
             </React.Fragment>
           );
@@ -43,6 +49,7 @@ const AllCalls = () => {
               key={`call-log-item-${index}`}
               item={item}
               index={index}
+              onClick={() => onCallLogItemClick(item.id)}
             />
           );
         }
