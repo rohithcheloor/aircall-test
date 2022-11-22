@@ -8,15 +8,19 @@
   "license": "",
   "private": false,
   "scripts": {
-    "start": "webpack-dev-server --mode development --open",
-    "build": "webpack --mode production"
+    "dev": "webpack-dev-server --mode development --open",
+    "postinstall": "webpack -p",
+    "build": "webpack --mode production",
+    "start": "node server.js"
   },
   "engines": {
     "node": "16.15"
   },
   "dependencies": {
     "bootstrap": "^5.2.2",
+    "express": "^4.18.2",
     "moment": "^2.29.4",
+    "path": "^0.12.7",
     "react": "^18.2.0",
     "react-bootstrap": "^2.6.0",
     "react-dom": "^18.2.0",
