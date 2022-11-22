@@ -59,6 +59,11 @@ body {
   padding: 1em;
   transition: all 200ms;
 }
+.settings-page .archive-all-button {
+  border-top: 1px solid #e2e2e2;
+  border-radius: 10px;
+  margin-top: 1em;
+}
 .archive-all-button img,
 .archive-all-button span {
   transition: all 200ms;
@@ -157,4 +162,16 @@ body {
   color: #b2b2b2;
   font-weight: 600;
   position: relative;
+}
+.modal {
+  --bs-modal-width: 300px;
+  top: 30%;
+}
+.btn-primary {
+  --bs-btn-bg: #fc5624;
+  --bs-btn-border-color: #fc5624;
+  --bs-btn-hover-bg: #ac2800;
+  --bs-btn-hover-border-color: #ac2800;
+  --bs-btn-active-bg: #ac2800;
+  --bs-btn-active-border-color: #ac2800;
 }

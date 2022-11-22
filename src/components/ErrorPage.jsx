@@ -1,10 +1,10 @@
 import React from "react";
 
-const ErrorPage = () => {
+const ErrorPage = ({ code, description }) => {
   return (
     <div className="errorPage">
-      <h1>404!</h1>
-      <h5>Page Not Found</h5>
+      {code && <h1>{code}!</h1>}
+      <h5>{description}</h5>
     </div>
   );
 };
