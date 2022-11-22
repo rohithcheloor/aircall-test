@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import { resetActivity, updateActivity } from "../../api/activities";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 
-const Settings = () => {
+const Settings = ({ changePage }) => {
   const [showModal, setShowModal] = useState(false);
   const closeModal = () => {
     setShowModal(false);
@@ -20,7 +20,6 @@ const Settings = () => {
   };
   return (
     <div className="settings-page">
-      <ToastContainer />
       <Modal show={showModal} onHide={closeModal}>
         <Modal.Header closeButton>
           <Modal.Title>Confirm</Modal.Title>
