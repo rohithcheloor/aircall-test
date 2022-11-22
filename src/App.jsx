@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { createRoot } from "react-dom/client";
 
 import Header from "./components/Header.jsx";
+import PageRouter from "./components/PageRouter.jsx";
 
 const App = () => {
+  const [currentPage, setCurrentPage] = useState(0);
   return (
     <div className="container p-0">
-      <Header />
-      <div className="container-view">Some activities should be here</div>
+      <Header currentPage={currentPage} changePage={setCurrentPage} />
+      <div className="container-view">
+        <PageRouter currentPage={currentPage} />
+      </div>
     </div>
   );
 };
