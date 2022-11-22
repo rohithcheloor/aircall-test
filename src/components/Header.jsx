@@ -1,10 +1,10 @@
 import React from "react";
 
-const Header = () => {
+const Header = ({ currentPage, changePage }) => {
   return (
     <header>
-      <div class="header-container">
-        <div class="logo-container">
+      <div className="header-container">
+        <div className="logo-container">
           <svg
             width="486px"
             height="168px"
@@ -64,20 +64,31 @@ const Header = () => {
             </g>
           </svg>
         </div>
-        <div class="tab-curve-container">
-          <div class="tab-curve"></div>
+        <div className="tab-curve-container">
+          <div className="tab-curve"></div>
         </div>
-        <div class="tab-container">
-          <div class="tab-items">
-            <a class="enabled" href="#">
+        <div className="tab-container">
+          <div className="tab-items">
+            <a
+              className={currentPage == 0 ? "enabled" : ""}
+              onClick={() => changePage(0)}
+              href="#"
+            >
               Inbox
             </a>
-            <div class="item-seperator"></div>
-            <a class="" href="#">
+            <div className="item-seperator"></div>
+            <a
+              className={currentPage == 1 ? "enabled" : ""}
+              onClick={() => changePage(1)}
+              href="#"
+            >
               All Calls
             </a>
-            <div class="item-seperator"></div>
-            <a class="">
+            <div className="item-seperator"></div>
+            <a
+              className={currentPage == 2 ? "enabled" : ""}
+              onClick={() => changePage(2)}
+            >
               <img
                 alt="settings"
                 src="data:image/png;base64,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"

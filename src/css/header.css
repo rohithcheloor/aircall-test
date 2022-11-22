@@ -65,6 +65,7 @@ header svg {
 }
 .tab-items img {
   width: 20px;
+  cursor: pointer;
 }
 
 .tab-container {
