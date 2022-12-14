@@ -8,8 +8,9 @@
   "license": "",
   "private": false,
   "scripts": {
-    "start": "webpack-dev-server --mode development --open",
-    "build": "webpack --mode production"
+    "dev": "webpack-dev-server --mode development --open",
+    "build": "webpack --mode production",
+    "start": "react-scripts --openssl-legacy-provider start"
   },
   "dependencies": {
     "bootstrap": "^5.2.2",
