@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "webpack-dev-server --mode development --open",
     "build": "webpack --mode production",
-    "start": "react-scripts --openssl-legacy-provider start"
+    "start": "react-scripts start"
   },
   "engines": {
     "node": "16.15"
