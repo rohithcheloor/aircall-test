@@ -12,6 +12,9 @@
     "build": "webpack --mode production",
     "start": "react-scripts --openssl-legacy-provider start"
   },
+  "engines": {
+    "node": "16.15"
+  },
   "dependencies": {
     "bootstrap": "^5.2.2",
     "moment": "^2.29.4",
